@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Страница не найдена</title>
+<script src="/cdn-cgi/apps/head/2mxA-4ODHTRm-EL7ShqPIf6PODI.js"></script><style>
+        body {
+            color: white;
+            font-family: Verdana;
+            background: #27150E;
+            font-size: 150%;
+        }
+        a {
+            color: white;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid block-error">
+<div class="row">
+<div class="col-sm-8">
+<h1>404 — Страница не найдена</h1>
+<p>
+Страница, которую вы пытаетесь посмотреть, не существует. Этому может быть несколько причин:
+</p>
+<ul>
+<li>Страница была удалена;</li>
+<li>Страница была перенесена в другое место;</li>
+<li>Страницы никогда не существовало, а вам просто дали неверную ссылку.</li>
+</ul>
+Попробуйте перейти на <a href="/">главную страницу</a>.
+</div>
+<div class="col-sm-8">
+<img src="https://teinon.net/ficbook/design/errors/error404.png" alt="404" class="img-responsive" />
+</div>
+</div>
+</div>
+</body>
+</html>

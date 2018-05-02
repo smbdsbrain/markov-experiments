@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-url = 'https://ficbook.net/find?title=&fandom_filter=any&fandom_group_id=1&sizes%5B%5D=4&pages_min=&pages_max=&ratings%5B%5D=9&transl=&status=&directions%5B%5D=1&directions%5B%5D=2&directions%5B%5D=3&directions%5B%5D=4&directions%5B%5D=7&directions%5B%5D=6&warnings%5B%5D=27&warnings%5B%5D=14&warnings%5B%5D=13&warnings%5B%5D=28&warnings%5B%5D=26&warnings%5B%5D=60&likes_min=&likes_max=&sort=random&rnd=491794192&find=Найти%21#result'
+url = 'https://ficbook.net/find?title=&fandom_filter=any&fandom_group_id=1&sizes%5B%5D=4&pages_min=&pages_max=&ratings%5B%5D=9&transl=&status=2&directions%5B%5D=1&directions%5B%5D=2&directions%5B%5D=3&directions%5B%5D=4&directions%5B%5D=7&directions%5B%5D=6&directions%5B%5D=5&likes_min=&likes_max=&sort=random&rnd=1128345545&find=Найти%21#result'
 
 
 def run(steps=700):
