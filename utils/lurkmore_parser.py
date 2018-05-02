@@ -23,6 +23,6 @@ def run(steps=1000):
         name = r.request.path_url[1:]
         name = unquote(name).replace('/', '|')
 
-        with open(f"../texts/{name}", 'w') as f:
+        with open(f"texts/{name}", 'w') as f:
             logging.info(name)
             f.write(text)

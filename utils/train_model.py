@@ -11,14 +11,25 @@ state_size = 3
 def run(config):
     # model = markovify.Text('Hello, world!', state_size=3)
     state_size = config.get('state_size', 3)
-    p = Pool(config['cpu_count'])
+    use_big_corpus = config.get('use_big_corpus', False)
 
-    results = p.map(make_model_from_text, os.listdir(path="../texts"))
+    if not use_big_corpus:
 
-    p.close()
-    p.join()
+        p = Pool(config['cpu_count'])
+        results = p.map(make_model_from_text, os.listdir(path="../texts"))
 
-    results = [result for result in results if result]
+        p.close()
+        p.join()
+
+        results = [result for result in results if result]
+    else:
+
+        logging.info('Start build on big corpus..')
+        with open(f"output_corpus.txt") as f:
+            text = f.read()
+        result = markovify.Text(text, state_size=state_size)
+        results = [result]
+
     logging.info('start combining')
 
     last_model = None
@@ -41,14 +52,14 @@ def run(config):
 
     logging.info('Saving model...')
     model_json = model.to_json()
-    with open(f"../model.json", 'w') as f:
+    with open(f"model.json", 'w') as f:
         f.write(model_json)
 
 
 def make_model_from_text(text_name):
     logging.info(f'Start build chain on {text_name}')
     try:
-        with open(f"../texts/{text_name}") as f:
+        with open(f"texts/{text_name}") as f:
             text = f.read()
         return markovify.Text(text, state_size=state_size)
     except Exception as e:

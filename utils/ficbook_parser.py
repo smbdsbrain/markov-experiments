@@ -20,5 +20,5 @@ def run(steps=700):
             fic_id = re.search(r'[0-9]{4,9}', link).group(0)
             logging.info(fic_id)
             fic = requests.get(f"https://ficbook.net/fanfic_download/txt/{fic_id}").text
-            with open(f"../texts/{fic_id}", 'w') as f:
+            with open(f"texts/{fic_id}", 'w') as f:
                 f.write(fic)
