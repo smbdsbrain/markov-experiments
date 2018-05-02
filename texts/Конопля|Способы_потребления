@@ -1,0 +1,11 @@
+
+Вы можете вернуться на предыдущую страницу,перейти на главную, почитать другую статью или поискать что-нибудь еще.
+if(location.hostname=='lurkmore.to') document.write('<br/><br/>А если вы вдруг обнаружили себя <a class="link" href="/%D0%9F%D0%BE%D1%80%D0%BE%D1%81%D0%B5%D0%BD%D0%BE%D0%BA_%D0%9F%D0%B5%D1%82%D1%80">за пределами</a> <s>концла</s> поднимающейся с колен, можете посмотреть <a class="link external" href="'+location.href.replace('lurkmore.to','lurkmore.co')+'">какую-нибудь</a> <a class="link external" href="'+location.href.replace('lurkmore.to','lurkmo.re')+'">альтернативную версию</a> этой страницы');
+if(location.hostname=='lurkmo.re') document.write('<br/><br/>А если вы вдруг обнаружили себя <a class="link" href="/%D0%9F%D0%BE%D1%80%D0%BE%D1%81%D0%B5%D0%BD%D0%BE%D0%BA_%D0%9F%D0%B5%D1%82%D1%80">за пределами</a> <s>концла</s> поднимающейся с колен, можете посмотреть <a class="link external" href="'+location.href.replace('lurkmo.re','lurkmore.co')+'">какую-нибудь</a> <a class="link external" href="'+location.href.replace('lurkmo.re','lurkmore.to')+'">альтернативную версию</a> этой страницы');
+if((location.hostname!=='lurkmore.to')&&(laction.hostname!=='lurkmo.re')) document.write('<br/><br/>А если вы вдруг обнаружили себя <a class="link" href="/%D0%9F%D0%BE%D1%80%D0%BE%D1%81%D0%B5%D0%BD%D0%BE%D0%BA_%D0%9F%D0%B5%D1%82%D1%80">за пределами</a> <s>концла</s> поднимающейся с колен, можете посмотреть <a class="link external" href="'+location.href.replace(/lurkmo(re)?.[^\/]*/,'lurkmore.to')+'">какую-нибудь</a> <a class="link external" href="'+location.href.replace(/lurkmo(re)?.[^\/]*/,'lurkmo.re')+'">альтернативную версию</a> этой страницы');
+
+Также, можно почитать про методы обхода цензуры.
+
+document.write('Обладатели <a class="link" href="/IPv6">IPv6</a> connectivity также могут воспользоваться <a class="link external" href="'+location.href.replace(/lurkmo(re)?.[^\/]*/,'ipv6.lurkmo.re')+'">соответствующими</a> <a class="link external" href="'+location.href.replace(/lurkmo(re)?.[^\/]*/,'ipv6.lurkmore.to')+'">доменами</a> с IPv6-адресами.');
+
+Главная страница | о проекте | справка

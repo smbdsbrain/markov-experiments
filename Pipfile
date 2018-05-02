@@ -1,0 +1,27 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[requires]
+
+python_version = '3.6'
+
+
+[packages]
+
+markovify = "*"
+"beautifulsoup4" = "*"
+requests = "*"
+python-telegram-bot = "*"
+request = {extras = ["socks"]}
+pysocks = "*"
+invoke = "*"
+"html2text" = "*"
+nltk = "*"
+
+
+[dev-packages]
+

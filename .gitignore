@@ -1,0 +1,20 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen### Python template
+.directory
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+
+.cache/
+.pytest_cache/
+db.json
+test_db.json
+.virtualenvs/
+invoke.yaml
+.DS_Store
+model.json
