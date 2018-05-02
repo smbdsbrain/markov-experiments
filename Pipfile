@@ -21,6 +21,7 @@ pysocks = "*"
 invoke = "*"
 "html2text" = "*"
 nltk = "*"
+aiotg = "*"
 
 
 [dev-packages]
