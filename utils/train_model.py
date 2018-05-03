@@ -16,7 +16,7 @@ def run(config):
     if not use_big_corpus:
 
         p = Pool(config['cpu_count'])
-        results = p.map(make_model_from_text, os.listdir(path="../texts"))
+        results = p.map(make_model_from_text, os.listdir(path="texts"))
 
         p.close()
         p.join()
