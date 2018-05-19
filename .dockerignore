@@ -1,0 +1,7 @@
+Dockerfile
+.gitlab-ci.yml
+README.md
+model.json
+outpur_corpus.txt
+texts/**/*
+texts
