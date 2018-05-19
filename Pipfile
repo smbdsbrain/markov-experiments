@@ -17,7 +17,5 @@ invoke = "*"
 "html2text" = "*"
 nltk = "*"
 aiotg = "*"
-keras = "*"
-tensorflow = "*"
 
 [dev-packages]
