@@ -17,5 +17,7 @@ invoke = "*"
 "html2text" = "*"
 nltk = "*"
 aiotg = "*"
+aioworkers = "*"
+aioworkers-aiohttp = "*"
 
 [dev-packages]
