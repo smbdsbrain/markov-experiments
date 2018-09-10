@@ -6,5 +6,11 @@ services:
     command: inv
     restart: always
     volumes:
-      - ./model.json:/app/model.json
       - ./invoke.yaml:/app/invoke.yaml
+
+  api:
+    build: .
+    command: api
+    restart: always
+    volumes:
+      - ./model.json:/app/model.json

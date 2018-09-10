@@ -2,10 +2,15 @@
 
 set -e
 
-if [ "$1" = 'inv' ];
-then
+# Choose command
+case "$1" in
+inv)
     shift
     exec invoke $@
-else
-    exec "$@"
-fi
+    ;;
+api)
+    shift
+    aioworkers -c config.yaml $@
+    ;;
+*) exec "$@"
+esac
