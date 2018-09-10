@@ -1,3 +1,4 @@
+import aiohttp
 import asyncio
 import json
 import logging
@@ -8,13 +9,6 @@ from aiotg import Bot, Chat
 
 def run(config):
     logging.info('start reading model file')
-    with open('model.json', 'r') as f:
-        model_json = f.read()
-
-    logging.info('start reading model')
-    model = markovify.Text.from_json(model_json)
-    logging.info('read model')
-
     bot = Bot(api_token=config.token, proxy=config.proxy['proxy_url'])
 
     @bot.command(r"/start")
@@ -30,8 +24,11 @@ def run(config):
                               reply_markup=json.dumps(keyboard))
 
     @bot.default
-    def answerer(chat, message):
-        answer = model.make_sentence()
+    async def answerer(chat, message):
+        async with aiohttp.ClientSession() as session:
+            r = session.post(f'{config.api_uri}/phrase', json={'phrase': ''})
+            answer = (await r.json())['answer']
+
         logging.info(f"{chat.sender}, {message}: {answer}")
         return chat.reply(answer)
 
@@ -39,7 +36,11 @@ def run(config):
 
     async def chanel_posting():
         while True:
-            await channel.send_text(model.make_sentence())
+            async with aiohttp.ClientSession() as session:
+                r = session.post(f'{config.api_uri}/phrase', json={'phrase': ''})
+                answer = (await r.json())['answer']
+
+            await channel.send_text(answer)
             await asyncio.sleep(60 * config.interval)
 
     loop = asyncio.get_event_loop()
