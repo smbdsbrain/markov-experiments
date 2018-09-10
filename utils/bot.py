@@ -26,7 +26,7 @@ def run(config):
     @bot.default
     async def answerer(chat, message):
         async with aiohttp.ClientSession() as session:
-            r = session.post(f'{config.api_uri}/phrase', json={'phrase': ''})
+            r = await session.post(f'{config.api_uri}/phrase', json={'phrase': ''})
             answer = (await r.json())['answer']
 
         logging.info(f"{chat.sender}, {message}: {answer}")
@@ -37,7 +37,7 @@ def run(config):
     async def chanel_posting():
         while True:
             async with aiohttp.ClientSession() as session:
-                r = session.post(f'{config.api_uri}/phrase', json={'phrase': ''})
+                r = await session.post(f'{config.api_uri}/phrase', json={'phrase': ''})
                 answer = (await r.json())['answer']
 
             await channel.send_text(answer)
