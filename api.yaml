@@ -1,0 +1,43 @@
+swagger: '2.0'
+
+info:
+  title: SICK BASTARD API
+  version: '0.00000000000000000000000009'
+  description: 'REST API interface for sick bastard'
+
+basePath: /v1
+
+security: []
+paths:
+  /phrase:
+    post:
+      $handler: sick_bastard_api.views.phrase
+      security: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: phrase
+          in: body
+          required: false
+          description: The phrase, for which sick bastard should answer. For future.
+          schema:
+            type: object
+            properties:
+              phrase:
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+                    example: hello, my darling
+        '400':
+          description: Validation error
+

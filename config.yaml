@@ -1,0 +1,10 @@
+app:
+  cls: sick_bastard_api.app.Application
+  debug: yes
+  router:
+    cls: aioworkers_aiohttp.router.Router
+    swagger_ui: /docs
+    version_ui: 3
+  resources:
+    /v1:
+      include: api.yaml
