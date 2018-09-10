@@ -1,6 +1,7 @@
 app:
   cls: sick_bastard_api.app.Application
   debug: yes
+  max_phrase_size: 240
   router:
     cls: aioworkers_aiohttp.router.Router
     swagger_ui: /docs
