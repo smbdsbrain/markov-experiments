@@ -23,11 +23,11 @@ async def alice(request, phrase):
     if phrase['session']['new']:
         response['response']['text'] = \
             'Привет! Этот навык наизусть знает учебники по C++,C и Python, ' \
-            'а также из произведения Довлатова!' \
+            'а также произведения Довлатова!' \
             'Просто скажи любую фразу и он продолжит ее опираясь на свои знания'
     else:
         response['response']['text'] = make_answer(
-            phrase.get('phrase', 'Hello!'),
+            phrase.get('request', {}).get('original_utterance', 'Hello!'),
             request.app.model,
             request.app.config.max_phrase_size,
         )
