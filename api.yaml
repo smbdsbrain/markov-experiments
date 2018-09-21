@@ -40,4 +40,64 @@ paths:
                     example: hello, my darling
         '400':
           description: Validation error
-
+  /alice:
+    post:
+      $handler: sick_bastard_api.views.alice
+      security: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: phrase
+          in: body
+          schema:
+            type: object
+            additionalProperties: true
+            properties:
+              meta:
+                type: object
+                properties:
+                  locale:
+                    type: string
+                  timezone:
+                    type: string
+                  client_id:
+                    type: string
+              request:
+                type: object
+                properties:
+                  command:
+                    type: string
+                  original_utterance:
+                    type: string
+                  'type':
+                    type: string
+                  markup:
+                    type: object
+                    properties:
+                      dangerous_context:
+                        type: boolean
+                  payload:
+                    type: object
+                    properties: {}
+              session:
+                type: object
+                properties:
+                  new:
+                    type: boolean
+                  message_id:
+                    type: integer
+                  session_id:
+                    type: string
+                  skill_id:
+                    type: string
+                  user_id:
+                    type: string
+              version:
+                type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Validation error

@@ -1,13 +1,35 @@
-import random
+from sick_bastard_api.utils import make_answer
 
 
 async def phrase(request, phrase):
-    markovify_words = random.choice(phrase.get('phrase', 'Hello!').split(' '))
-    answer = request.app.model.make_sentence_with_start(markovify_words,
-                                                        strict=False,
-                                                        max_words=request.app.config.max_phrase_size)
+    return {
+        'answer': make_answer(
+            phrase.get('phrase', 'Hello!'),
+            request.app.model,
+            request.app.config.max_phrase_size
+        )
+    }
 
-    if not answer:
-        answer = request.app.model.make_short_sentence(request.app.config.max_phrase_size)
 
-    return {'answer': answer}
+async def alice(request, phrase):
+    response = {
+        "version": phrase['version'],
+        "session": phrase['session'],
+        "response": {
+            "end_session": False
+        }
+    }
+
+    if phrase['session']['new']:
+        response['response']['text'] = \
+            'Привет! Этот навык наизусть знает учебники по C++,C и Python, ' \
+            'а также из произведения Довлатова!' \
+            'Просто скажи любую фразу и он продолжит ее опираясь на свои знания'
+    else:
+        response['response']['text'] = make_answer(
+            phrase.get('phrase', 'Hello!'),
+            request.app.model,
+            request.app.config.max_phrase_size,
+        )
+
+    return response
