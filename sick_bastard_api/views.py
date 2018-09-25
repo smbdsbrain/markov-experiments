@@ -27,7 +27,7 @@ async def alice(request, phrase):
             'Просто скажи любую фразу и он продолжит ее опираясь на свои знания'
     else:
         response['response']['text'] = make_answer(
-            phrase.get('request', {}).get('original_utterance', 'Hello!'),
+            phrase.get('request', {}).get('command', 'Hello!'),
             request.app.model,
             request.app.config.max_phrase_size,
         )
