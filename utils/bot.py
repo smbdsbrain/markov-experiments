@@ -7,7 +7,7 @@ from aiotg import Bot, Chat
 
 def run(config):
     logging.info('start reading model file')
-    bot = Bot(api_token=config.token, proxy=config.proxy['proxy_url'], default_in_groups=True)
+    bot = Bot(api_token=config.token, default_in_groups=True)
 
     @bot.command(r"/start")
     def start(chat: Chat, match):
